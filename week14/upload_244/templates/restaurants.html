@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Restaurants </title>
+</head>
+<body>
+    <ul>
+    {% for rest in restaurants %}
+        <h2> {{ rest.title }}: <br></h2>
+        <li> Categories: {{ rest.categories }} </li>
+        <li> Rating: {{ rest.score }} </li>
+    {% endfor %}
+    </ul>
+    {% include "footer.html" %}
+</body>
+</html>
+
+
