@@ -18,6 +18,7 @@ def index():
     return render_template("index.html",
                            stream_list=STREAM_LIST)
 
+
 @app.route("/<streaming>")
 def stream_page(streaming: str):
     movies_raw = get_movies_from_stream(streaming)
