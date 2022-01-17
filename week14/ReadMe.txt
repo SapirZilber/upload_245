@@ -1,1 +1,0 @@
-This folder contains all the exercises of week 14.
