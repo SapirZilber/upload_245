@@ -47,9 +47,11 @@ def get_movies_details(movies: List[Dict]) -> List[Dict]:
         year = movie["year"]
         description = movie["overview"]
         cast = movie["cast"]
-        dict = {"title": title, "rating": rating, "year": year, "cast": cast, "description": description}
+        votes = movie["imdbVoteCount"]
+        dict = {"title": title, "rating": rating, "year": year, "cast": cast, "description": description, "votes": votes}
         movies_details.append(dict)
-    return movies_details
+        movies_details.sort(key=lambda x: x["votes"])
+        return movies_details
 
 
 app.run(debug=True)
