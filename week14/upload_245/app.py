@@ -55,4 +55,4 @@ def get_movies_details(movies: List[Dict]) -> List[Dict]:
         return movies_details
 
 
-app.run(debug=True)
+
