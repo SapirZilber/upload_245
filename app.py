@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for
-from typing import Dict, Iterator, List, Union
+from typing import Dict, List
 import requests
 import json
 
@@ -33,7 +33,7 @@ def get_movies_from_stream(streaming: str) -> List[Dict]:
                    "language": "en"}
     headers = {
         'x-rapidapi-host': "streaming-availability.p.rapidapi.com",
-        'x-rapidapi-key': "API KEY"
+        'x-rapidapi-key': "e57ee6c9d5mshcdc0eefc7c31f5cp11fc53jsn81cca60b7931"
     }
     response = requests.request("GET", API, headers=headers, params=querystring)
     movies_json = response.json()
@@ -51,11 +51,8 @@ def get_movies_details(movies: List[Dict]) -> List[Dict]:
         votes = movie["imdbVoteCount"]
         dict = {"title": title, "rating": rating, "year": year, "cast": cast, "description": description, "votes": votes}
         movies_details.append(dict)
-        movies_details.sort(key=lambda x: x["votes"])
-        return movies_details
+    movies_details.sort(key=lambda x: x["votes"], reverse=True)
+    return movies_details
 
 
-<<<<<<< HEAD
-app.run(debug=True)
-=======
->>>>>>> upload_245
+
